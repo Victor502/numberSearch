@@ -19,21 +19,21 @@ const readline = require('readline').createInterface({
 
 // receives answer
 readline.question(`Pick a number: `, (number) => {
-let recursiveFunction = function (arr, x, start, end) { 
+let recursiveFunction = (arr, x, start, end) => { 
     // Base Condition 
     if (start > end) return false; 
     // Find the middle index 
-    let mid=Math.floor((start + end)/2); 
+    let middle=Math.floor((start + end)/2); 
     // Compare mid with given key x 
-    if (arr[mid]===x) return true;   
+    if (arr[middle] === x) return true;   
     // If element at mid is greater than x, 
     // search in the left half of mid 
-    if(arr[mid] > x)  
-        return recursiveFunction(arr, x, start, mid-1); 
+    if(arr[middle] > x)  
+        return recursiveFunction(arr, x, start, middle-1); 
     else
         // If element at mid is smaller than x, 
         // search in the right half of mid 
-        return recursiveFunction(arr, x, mid+1, end); 
+        return recursiveFunction(arr, x, middle+1, end); 
 } 
 if (recursiveFunction(numbers, parseInt(number), 0, numbers.length-1)) 
     console.log(`Your number ${number}, was found`); 
