@@ -15,19 +15,17 @@ const readline = require("readline").createInterface({
   output: process.stdout
 })
 // receives answer
-readline.question(`Pick a number: `, number => {
+readline.question(`Pick a number between 1 and 1000: `, number => {
   let recursiveFunction = (arr, x, start, end) => {
     // Base Condition
     if (start > end) return false
-    // Find the middle index
+    // middle index
     let middle = Math.floor((start + end) / 2)
-    // Compare mid with given key x
+    // Compare middle with number
     if (arr[middle] === x) return true
-    // If element at mid is greater than x,
-    // search in the left half of mid
+    // search in the left half of middle
     if (arr[middle] > x) return recursiveFunction(arr, x, start, middle - 1)
-    // If element at mid is smaller than x,
-    // search in the right half of mid
+    // search in the right half of middle
     else return recursiveFunction(arr, x, middle + 1, end)
   }
   if (recursiveFunction(numbers, parseInt(number), 0, numbers.length - 1))
