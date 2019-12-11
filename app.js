@@ -4,10 +4,26 @@ while (numbers.length < 100) {
   var n = Math.floor(Math.random() * 1000) + 1
   if (numbers.indexOf(n) === -1) numbers.push(n)
 }
+console.log(numbers)
 //sort the numbers ascending order
-numbers.sort((a, b) => {
-  return a - b
-})
+// numbers.sort((a, b) => {
+//   return a - b
+// })
+
+let sortNumbers = numbersArray => {
+  for(let i = 1; i < numbersArray.length; i++){
+    let a = numbersArray[i]
+    let key = i - 1
+    while(a < numbersArray[key]){
+      numbersArray[key + 1] = numbersArray[key];
+      key = key -1
+    }
+      numbersArray[key + 1] = a
+  }
+  return numbersArray
+}
+sortNumbers(numbers)
+
 console.log(numbers)
 // terminal input
 const readline = require("readline").createInterface({
