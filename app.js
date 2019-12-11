@@ -11,12 +11,15 @@ console.log(numbers)
 // })
 
 let sortNumbers = numbersArray => {
-  for(let i = 1; i < numbersArray.length; i++){
+  for(let i = 0; i < numbersArray.length; i++){
     let a = numbersArray[i]
+    console.log('a', a)
     let key = i - 1
+    console.log('numbersArray[key]', numbersArray[key])
+    console.log('numbersArray[key + 1]', numbersArray[key +1])
     while(a < numbersArray[key]){
       numbersArray[key + 1] = numbersArray[key];
-      key = key -1
+      key -= 1
     }
       numbersArray[key + 1] = a
   }
